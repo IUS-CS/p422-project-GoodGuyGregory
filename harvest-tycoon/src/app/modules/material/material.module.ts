@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 const MaterialComponents = [
@@ -14,7 +14,8 @@ const MaterialComponents = [
   MatButtonModule,
   MatRadioModule,
   MatSliderModule,
-  MatCardModule
+  MatCardModule,
+  MatTabsModule
 ]
 
 @NgModule({
