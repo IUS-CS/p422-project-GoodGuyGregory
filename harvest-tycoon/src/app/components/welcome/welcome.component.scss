@@ -1,18 +1,29 @@
-h1 {
-    margin: 1em;
-    font-size: 3em;
-}
-
-.nav-group {
-    display: flex;
-
-    .about {
-        flex-direction: column;
+.welcome {
+    
+    h1 {
+        margin: 1em;
+        font-size: 3em;
     }
-
+    
     img {
-        margin: 50px;
+        margin: 20px;
         border-radius: 50%;
+    }
+    
+    mat-card {
+        display: flex;
+        flex-direction: column;
+        margin: 40px;
+        padding: 25px;
+        align-items: center;
+
+        mat-card-content {
+            margin-top: 25px;
+        }
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
     }
 }
 
