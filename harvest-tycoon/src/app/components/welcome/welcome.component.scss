@@ -1,0 +1,19 @@
+h1 {
+    margin: 1em;
+    font-size: 3em;
+}
+
+.nav-group {
+    display: flex;
+
+    .about {
+        flex-direction: column;
+    }
+
+    img {
+        margin: 50px;
+        border-radius: 50%;
+    }
+}
+
+
