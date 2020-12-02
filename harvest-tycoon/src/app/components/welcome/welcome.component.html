@@ -1,10 +1,97 @@
-<h1>Harvest-Tycoon</h1>
-<mat-tab-group class="nav-group" mat-align-tabs="end">
-    <mat-tab class="about" label="About">
-        <img src="assets/img/House-Plant.png" alt="house-plant-image">
-        <h3>Grow your network of Plants and Friends</h3>
-    </mat-tab>
-    <mat-tab label="Login">
-        <app-login></app-login>
-    </mat-tab>
-</mat-tab-group>
+<div class="welcome">
+    <h1 routerLink="/">Harvest-Tycoon</h1>
+    <mat-tab-group class="nav-group" mat-align-tabs="end">
+        <mat-tab label="About">
+
+            <mat-grid-list cols="2" *ngIf="showingAbout">
+                <mat-grid-tile>
+                    <img src="assets/img/House-Plant.png" alt="house-plant-image">
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div *ngIf="showingAbout">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>Grow a Network of Planters</mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p> Make Friends with app users who also cultivate various plants in your homes.</p>
+                                <p>Set Reminders, Communicate with Friends and Shar propegations and trade plants</p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-raised-button color="primary" (click)="hideAbout()">Join Now</button>
+                                <button mat-raised-button color="accent">Login</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <div *ngIf="creatingUser">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Create Your Profile</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-horizontal-stepper labelPosition="bottom" #stepper>
+                            <mat-step label="Username">
+                                <form [formGroup]="createUserForm">
+                                    <ng-template matStepLabel>Fill out your name</ng-template>
+                                    <mat-form-field>
+                                        <mat-label>Name</mat-label>
+                                        <input matInput placeholder="GoodGuyGregory" formControlName="username"
+                                            required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperNext>Next</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step label="Full Name">
+                                <form [formGroup]="createUserForm">
+                                    <ng-template matStepLabel>Fill out your name</ng-template>
+                                    <mat-form-field>
+                                        <mat-label>Name</mat-label>
+                                        <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
+                                            required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperNext>Next</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step label="Email">
+                                <form [formGroup]="s">
+                                    <ng-template matStepLabel>Fill out your address</ng-template>
+                                    <mat-form-field>
+                                        <mat-label>Address</mat-label>
+                                        <input matInput formControlName="secondCtrl"
+                                            placeholder="Ex. 1 Main St, New York, NY" required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-button matStepperPrevious>Back</button>
+                                        <button mat-button matStepperNext>Next</button>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step label="Done">
+                                <ng-template matStepLabel>Done</ng-template>
+                                <p>You are now done.</p>
+                                <div>
+                                    <button mat-button matStepperPrevious>Back</button>
+                                    <button mat-button (click)="stepper.reset()">Reset</button>
+                                </div>
+                            </mat-step>
+                        </mat-horizontal-stepper>
+
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-raised-button color="basic" (click)="showAbout()">Go Back</button>
+                        <button mat-raised-button color="accent">Create Account</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Login">
+            <app-login></app-login>
+        </mat-tab>
+    </mat-tab-group>
+</div>
