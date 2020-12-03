@@ -27,7 +27,7 @@
             </mat-grid-list>
             <div *ngIf="creatingUser">
                 <mat-card>
-                    <button class="goBack" mat-raised-button color="basic" (click)="showAbout()">Go Back</button>
+                    <button class="goBack" mat-raised-button color="primary" (click)="showAbout()">Go Back</button>
                     <mat-card-header>
                         <mat-card-title>Create Your Profile</mat-card-title>
                     </mat-card-header>
@@ -76,7 +76,7 @@
 
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-raised-button color="accent" type="submit"
+                        <button class="create-account-btn" mat-raised-button color="accent" type="submit"
                             [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
                             Account</button>
                     </mat-card-actions>

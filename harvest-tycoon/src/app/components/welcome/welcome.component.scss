@@ -24,6 +24,11 @@
         .goBack {
             align-self: flex-start;
         }
+
+        .create-account-btn {
+            font-size: 1.5em;
+            padding: 10px;
+        }
         mat-card-content {
             margin-top: 25px;
         }
@@ -42,10 +47,8 @@
                 flex-direction: row;
             }
             mat-form-field {
-                margin: 10px;
-                // justify-content: space-between;
-    
-            
+                margin: 5px;
+                
             }
         }
     }

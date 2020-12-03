@@ -8,7 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { DashboardComponent } from './components/account-UI/dashboard/dashboard.component';
+import { PlantComponent } from './components/account-UI/plant/plant.component';
+import { CommunityComponent } from './components/account-UI/community/community.component';
+import { UserPlantsComponent } from './components/account-UI/user-plants/user-plants.component';
+import { UserHeaderComponent } from './components/account-UI/headers/user-header/user-header.component';
 
 
 
@@ -17,6 +21,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     WelcomeComponent,
     LoginComponent,
+    DashboardComponent,
+    PlantComponent,
+    CommunityComponent,
+    UserPlantsComponent,
+    UserHeaderComponent
   ],
   imports: [
     BrowserModule,
