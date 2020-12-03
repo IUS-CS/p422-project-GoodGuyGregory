@@ -21,6 +21,9 @@
         padding: 25px;
         align-items: center;
 
+        .goBack {
+            align-self: flex-start;
+        }
         mat-card-content {
             margin-top: 25px;
         }
