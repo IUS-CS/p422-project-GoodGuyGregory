@@ -23,6 +23,5 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log("logging in.....");
-    router
   }
 }

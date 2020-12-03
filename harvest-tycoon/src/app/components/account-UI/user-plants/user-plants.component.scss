@@ -1,0 +1,44 @@
+.garden-container {
+    height: 100%;
+    mat-sidenav-container {
+        height: 100%;
+    
+        mat-sidenav {
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            justify-content: flex-start;
+            padding: 16px;
+            width: 40%;
+            background-color: rgb(100, 225, 135);
+            button {
+                margin: 10px;
+            }
+                .inner {
+                    button {
+                        margin: 5px;
+                    }
+                }
+        
+            } 
+        mat-sidenav-content {
+            .garden-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                
+                mat-card {
+                    margin: 30px;
+                    .plant-container {
+
+                        padding: 25%;
+                    }
+                }
+
+            }
+            padding: 16px;
+        }
+    }
+}

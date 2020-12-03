@@ -13,6 +13,7 @@ import { PlantComponent } from './components/account-UI/plant/plant.component';
 import { CommunityComponent } from './components/account-UI/community/community.component';
 import { UserPlantsComponent } from './components/account-UI/user-plants/user-plants.component';
 import { UserHeaderComponent } from './components/account-UI/headers/user-header/user-header.component';
+import { CommunityMemberComponent } from './components/account-UI/community-member/community-member.component';
 
 
 
@@ -25,7 +26,8 @@ import { UserHeaderComponent } from './components/account-UI/headers/user-header
     PlantComponent,
     CommunityComponent,
     UserPlantsComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    CommunityMemberComponent
   ],
   imports: [
     BrowserModule,

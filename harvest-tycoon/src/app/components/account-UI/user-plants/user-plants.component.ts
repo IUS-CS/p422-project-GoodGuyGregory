@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPlantsComponent implements OnInit {
 
-  sideNavOpened = false;
+  housePlants = false;
+  harvestablePlants = false;
+  plantSelected = false;
 
   constructor() { }
 
