@@ -1,5 +1,5 @@
 <div class="welcome">
-    <h1 routerLink="/">Harvest-Tycoon</h1>
+    <h1><a routerLink="/">Harvest-Tycoon</a></h1>
     <mat-tab-group class="nav-group" mat-align-tabs="end">
         <mat-tab label="About">
 
@@ -27,65 +27,58 @@
             </mat-grid-list>
             <div *ngIf="creatingUser">
                 <mat-card>
+                    <button class="goBack" mat-raised-button color="primary" (click)="showAbout()">Go Back</button>
                     <mat-card-header>
                         <mat-card-title>Create Your Profile</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                        <mat-horizontal-stepper labelPosition="bottom" #stepper>
-                            <mat-step label="Username">
-                                <form [formGroup]="createUserForm">
-                                    <ng-template matStepLabel>Fill out your name</ng-template>
-                                    <mat-form-field>
-                                        <mat-label>Name</mat-label>
-                                        <input matInput placeholder="GoodGuyGregory" formControlName="username"
-                                            required>
-                                    </mat-form-field>
-                                    <div>
-                                        <button mat-button matStepperNext>Next</button>
-                                    </div>
-                                </form>
-                            </mat-step>
-                            <mat-step label="Full Name">
-                                <form [formGroup]="createUserForm">
-                                    <ng-template matStepLabel>Fill out your name</ng-template>
-                                    <mat-form-field>
-                                        <mat-label>Name</mat-label>
-                                        <input matInput placeholder="Last name, First name" formControlName="firstCtrl"
-                                            required>
-                                    </mat-form-field>
-                                    <div>
-                                        <button mat-button matStepperNext>Next</button>
-                                    </div>
-                                </form>
-                            </mat-step>
-                            <mat-step label="Email">
-                                <form [formGroup]="s">
-                                    <ng-template matStepLabel>Fill out your address</ng-template>
-                                    <mat-form-field>
-                                        <mat-label>Address</mat-label>
-                                        <input matInput formControlName="secondCtrl"
-                                            placeholder="Ex. 1 Main St, New York, NY" required>
-                                    </mat-form-field>
-                                    <div>
-                                        <button mat-button matStepperPrevious>Back</button>
-                                        <button mat-button matStepperNext>Next</button>
-                                    </div>
-                                </form>
-                            </mat-step>
-                            <mat-step label="Done">
-                                <ng-template matStepLabel>Done</ng-template>
-                                <p>You are now done.</p>
-                                <div>
-                                    <button mat-button matStepperPrevious>Back</button>
-                                    <button mat-button (click)="stepper.reset()">Reset</button>
-                                </div>
-                            </mat-step>
-                        </mat-horizontal-stepper>
+                        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+                            <mat-form-field appearance="outline" color="accent">
+                                <mat-label>Username</mat-label>
+                                <input matInput require id="username" formControlName="username" />
+                            </mat-form-field>
+                            <div class="seperate">
+                                <mat-form-field appearance="outline" color="accent">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput type="password" require id="password" formControlName="password" />
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" color="accent">
+                                    <mat-label>Confirm Password</mat-label>
+                                    <input matInput type="password" require id="confirmPassword"
+                                        formControlName="confirmPassword" />
+                                </mat-form-field>
+                            </div>
+                            <mat-form-field appearance="outline" color="accent">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" id="email" require formControlName="email" />
+                            </mat-form-field>
+                            <div class="seperate">
+                                <mat-form-field appearance="outline" color="accent">
+                                    <mat-label>Firstname</mat-label>
+                                    <input matInput type="text" id="firstName" require formControlName="firstName" />
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" color="accent">
+                                    <mat-label>Lastname</mat-label>
+                                    <input matInput require id="lastName" formControlName="lastName" type="text" />
+                                </mat-form-field>
+                            </div>
+                            <div class="seperate">
+                                <mat-form-field appearance="outline" color="accent">
+                                    <mat-label>Age</mat-label>
+                                    <input matInput type="number" id="age" require formControlName="age" />
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" color="accent">
+                                    <mat-label>Phone</mat-label>
+                                    <input matInput require id="phone" formControlName="phone" />
+                                </mat-form-field>
+                            </div>
+                        </form>
 
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-raised-button color="basic" (click)="showAbout()">Go Back</button>
-                        <button mat-raised-button color="accent">Create Account</button>
+                        <button class="create-account-btn" mat-raised-button color="accent" type="submit"
+                            [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
+                            Account</button>
                     </mat-card-actions>
                 </mat-card>
             </div>

@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h1 {
+        margin: 1em;
+        font-size: 3em;
+        a {
+            text-decoration: none;
+            color: #ffff;   
+        }
+    }
+
+    button {
+        align-self: flex-end;
+        margin: 25px;
+        
+        a {
+            text-decoration: none;
+            color: #ffff;  
+        }
+    }
+}
