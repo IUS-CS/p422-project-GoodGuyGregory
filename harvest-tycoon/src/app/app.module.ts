@@ -14,6 +14,7 @@ import { CommunityComponent } from './components/account-UI/community/community.
 import { UserPlantsComponent } from './components/account-UI/user-plants/user-plants.component';
 import { UserHeaderComponent } from './components/account-UI/headers/user-header/user-header.component';
 import { CommunityMemberComponent } from './components/account-UI/community-member/community-member.component';
+import { AddPlantComponent } from './components/account-UI/add-plant/add-plant.component';
 
 
 
@@ -27,7 +28,8 @@ import { CommunityMemberComponent } from './components/account-UI/community-memb
     CommunityComponent,
     UserPlantsComponent,
     UserHeaderComponent,
-    CommunityMemberComponent
+    CommunityMemberComponent,
+    AddPlantComponent
   ],
   imports: [
     BrowserModule,

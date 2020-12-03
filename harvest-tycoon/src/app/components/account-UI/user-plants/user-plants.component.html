@@ -25,6 +25,10 @@
                 <mat-card>
                     <button mat-raised-button color="primary" (click)="drawer.toggle()">See Plants</button>
                 </mat-card>
+                <div *ngIf="plantSelected">
+                    <!-- takes input from plant selection with DB Query -->
+                    <app-plant></app-plant>
+                </div>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>

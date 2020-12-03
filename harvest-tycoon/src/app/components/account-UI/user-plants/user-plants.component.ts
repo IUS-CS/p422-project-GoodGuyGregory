@@ -9,6 +9,7 @@ export class UserPlantsComponent implements OnInit {
 
   housePlants = false;
   harvestablePlants = false;
+
   plantSelected = false;
 
   constructor() { }
