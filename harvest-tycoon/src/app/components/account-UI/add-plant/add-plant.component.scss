@@ -1,0 +1,21 @@
+.add-plant-container {
+    margin: 4em;
+    
+    mat-card{
+
+        mat-card-title {
+            text-align: center;
+        }
+        padding: 30px;
+        align-self: center;
+        
+        .seperate {
+            mat-form-field{
+                margin: 10px;
+            }
+        }
+        .create-plant-btn {
+            margin: 20px;
+        }
+    }
+}

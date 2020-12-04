@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-community-member',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community-member.component.scss']
 })
 export class CommunityMemberComponent implements OnInit {
+
+  @Input() user: User;
 
   constructor() { }
 

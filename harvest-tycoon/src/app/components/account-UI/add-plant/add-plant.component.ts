@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-plant',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPlantComponent implements OnInit {
 
-  constructor() { }
+  createUserPlantForm: FormGroup
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.createUserPlantForm = this.fb.group({
+      type: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      lifestage: ['', [Validators.required]],
+      lightPreferences: ['', [Validators.required]],
+      wateringPreferences: ['', [Validators.required]],
+    })
+  }
+
+  addPlant(): void {
+
   }
 
 }
