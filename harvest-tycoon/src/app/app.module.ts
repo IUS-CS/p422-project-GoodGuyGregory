@@ -15,6 +15,7 @@ import { UserPlantsComponent } from './components/account-UI/user-plants/user-pl
 import { UserHeaderComponent } from './components/account-UI/headers/user-header/user-header.component';
 import { CommunityMemberComponent } from './components/account-UI/community-member/community-member.component';
 import { AddPlantComponent } from './components/account-UI/add-plant/add-plant.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -37,7 +38,8 @@ import { AddPlantComponent } from './components/account-UI/add-plant/add-plant.c
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

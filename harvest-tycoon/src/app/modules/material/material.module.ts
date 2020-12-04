@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 const MaterialComponents = [
@@ -26,7 +26,8 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatInputModule,
   MatStepperModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatSelectModule
 ]
 
 @NgModule({

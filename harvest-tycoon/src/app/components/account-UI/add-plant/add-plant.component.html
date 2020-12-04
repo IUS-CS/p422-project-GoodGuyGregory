@@ -1,54 +1,49 @@
-<mat-card>
-    <button class="goBack" mat-raised-button color="primary" (click)="showAbout()">Go Back</button>
-    <mat-card-header>
-        <mat-card-title>Create Your Profile</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance="outline" color="accent">
-                <mat-label>Username</mat-label>
-                <input matInput require id="username" formControlName="username" />
-            </mat-form-field>
-            <div class="seperate">
+<div class="add-plant-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Add New Plant</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="createUserPlantForm" (ngSubmit)="addPlant()">
                 <mat-form-field appearance="outline" color="accent">
-                    <mat-label>Password</mat-label>
-                    <input matInput type="password" require id="password" formControlName="password" />
+                    <mat-label>Type</mat-label>
+                    <!--  create a Select Menu -->
+                    <input matInput require id="type" formControlName="type" />
                 </mat-form-field>
+                <div class="seperate">
+                    <mat-form-field appearance="outline" color="accent">
+                        <mat-label>Plant Name</mat-label>
+                        <input matInput type="text" require id="name" formControlName="name" />
+                    </mat-form-field>
+                    <h3>Basic Information:</h3>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Life Stage of Plant</mat-label>
+                        <mat-select>
+                            <mat-option value="Seed" formControlName="lifestage">Seed</mat-option>
+                            <mat-option value="Seedling" formControlName="lifestage">Seedling</mat-option>
+                            <mat-option value="Young Plant" formControlName="lifestage">Young Plant</mat-option>
+                            <mat-option value="Mature Plant" formControlName="lifestage">Mature Plant</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Life Stage of Plant</mat-label>
+                        <mat-select>
+                            <mat-option value="Seed" formControlName="lifestage">Seed</mat-option>
+                            <mat-option value="Seedling" formControlName="lifestage">Seedling</mat-option>
+                            <mat-option value="Young Plant" formControlName="lifestage">Young Plant</mat-option>
+                            <mat-option value="Mature Plant" formControlName="lifestage">Mature Plant</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
                 <mat-form-field appearance="outline" color="accent">
-                    <mat-label>Confirm Password</mat-label>
-                    <input matInput type="password" require id="confirmPassword" formControlName="confirmPassword" />
+                    <mat-label>Watering Preferences</mat-label>
+                    <input matInput require id="wateringPreferences" formControlName="wateringPreferences"
+                        type="text" />
                 </mat-form-field>
-            </div>
-            <mat-form-field appearance="outline" color="accent">
-                <mat-label>Email</mat-label>
-                <input matInput type="email" id="email" require formControlName="email" />
-            </mat-form-field>
-            <div class="seperate">
-                <mat-form-field appearance="outline" color="accent">
-                    <mat-label>Firstname</mat-label>
-                    <input matInput type="text" id="firstName" require formControlName="firstName" />
-                </mat-form-field>
-                <mat-form-field appearance="outline" color="accent">
-                    <mat-label>Lastname</mat-label>
-                    <input matInput require id="lastName" formControlName="lastName" type="text" />
-                </mat-form-field>
-            </div>
-            <div class="seperate">
-                <mat-form-field appearance="outline" color="accent">
-                    <mat-label>Age</mat-label>
-                    <input matInput type="number" id="age" require formControlName="age" />
-                </mat-form-field>
-                <mat-form-field appearance="outline" color="accent">
-                    <mat-label>Phone</mat-label>
-                    <input matInput require id="phone" formControlName="phone" />
-                </mat-form-field>
-            </div>
-        </form>
-
-    </mat-card-content>
-    <mat-card-actions>
-        <button class="create-account-btn" mat-raised-button color="accent" type="submit"
-            [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
-            Account</button>
-    </mat-card-actions>
-</mat-card>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="create-plant-btn" mat-raised-button color="accent" type="submit">Add to Garden</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
