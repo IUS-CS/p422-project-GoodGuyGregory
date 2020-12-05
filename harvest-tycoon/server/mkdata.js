@@ -26,4 +26,4 @@ async function save() {
   await testUser1.save();
 }
 
-save().then(() => console.log('done'));
+testUser1.save().then(() => console.log('done'));

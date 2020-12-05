@@ -11,7 +11,7 @@ module.exports = {
       }
       let currentUsers = [];
       for (let user of users) {
-        ret.push(user.username);
+        currentUsers.push(user.username);
       }
       res.json(currentUsers);
     })
