@@ -1,9 +1,30 @@
-import { Plant } from './plant';
-
 const mongoose = require('mongoose');
 
+const PlantSchema = mongoose.Schema({
+  type: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  lifestage: {
+    type: String,
+    required: true
+  },
+  lightPreferences: {
+    type: String,
+    required: true
+  },
+  wateringPreferences: {
+    type: String,
+    required: true
+  },
+});
+
 var gardenSchema = mongoose.Schema({
-  plants: [Plant],
+  plants: [PlantSchema],
 })
 
 const UserSchema = mongoose.Schema({
