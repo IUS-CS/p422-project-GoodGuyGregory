@@ -19,19 +19,19 @@ module.exports = {
   byUser: (req, res) => {
     const section = req.params.class;
 
-    User.findOne().bySection(section).exec((err, klass) => {
+    User.findOne().bySection(section).exec((err, user) => {
       if (err) {
         res.status(500);
         res.json(err);
         return;
       }
-      if (!klass) {
+      if (!user) {
         res.status(404);
-        res.json({ 'err': 'class not found' });
+        res.json({ 'err': 'user not found' });
         return;
       }
-      console.log('sending class: ' + klass)
-      res.json(klass);
+      console.log('sending user: ' + user)
+      res.json(user);
     })
   }
 }
