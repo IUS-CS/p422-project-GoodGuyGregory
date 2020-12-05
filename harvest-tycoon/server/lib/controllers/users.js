@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
 module.exports = {
+  // returns all users
   root: (req, res) => {
     User.find().exec((err, users) => {
       if (err) {
@@ -8,11 +9,11 @@ module.exports = {
         res.json(err);
         return;
       }
-      let ret = [];
+      let currentUsers = [];
       for (let user of users) {
-        ret.push(user);
+        ret.push(user.username);
       }
-      res.json(ret);
+      res.json(currentUsers);
     })
   },
   byUser: (req, res) => {

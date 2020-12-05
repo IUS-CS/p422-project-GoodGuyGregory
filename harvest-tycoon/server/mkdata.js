@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('./lib/models/user');
 // const Plant = require('./lib/models/plant');
 
-const user1 = new User({
+const testUser1 = new User({
   username: 'test-user',
   password: 'password',
   email: 'test@test.com',
@@ -11,11 +11,7 @@ const user1 = new User({
   age: 60,
   phone: '502-554-2305',
   garden: {
-    plants: [
-      'Bamboo',
-      'Money Tree',
-      'Ghost Plant'
-    ]
+    plants: []
   }
 
 });
@@ -27,7 +23,7 @@ mongoose.connect('mongodb://localhost:27017/harvest-tycoon', { useNewUrlParser: 
 async function save() {
 
   // save course data to the db 
-  await user1.save()
+  await testUser1.save();
 }
 
 save().then(() => console.log('done'));
