@@ -1,4 +1,8 @@
 <div class="community-container">
     <h2>Other Growers in your Community</h2>
-    <mat-card *ngFor="let member of userCommunity"></mat-card>
+    <div class="members-container">
+        <div class="members" *ngFor="let member of (userCommunity | async)">
+            <app-community-member [user]="member"></app-community-member>
+        </div>
+    </div>
 </div>

@@ -1,12 +1,17 @@
 .community-container {
-    display: flex;
-    flex-direction: column;
-    
     h2 {
-        align-self: center;
+        text-align: center;
         margin: 20px;
         font-size: 2em;
     }
+    .members-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
-    
+        .members{
+            margin: 25px;
+        }
+    }
 }
