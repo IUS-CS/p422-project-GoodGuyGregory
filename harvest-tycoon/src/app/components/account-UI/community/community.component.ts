@@ -18,7 +18,7 @@ export class CommunityComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userCommunity = this.userDataService.getUsers()
+    this.userCommunity = this.userDataService.getUsers();
 
   }
 

@@ -1,12 +1,15 @@
 export class User {
-    username: string;
-    password: string;
-    email: string;
-    firstname: string;
-    lastname: string;
-    age: number;
-    phone: string;
-    garden: {
-        plants: string[];
+    constructor(
+        public username: string,
+        public password: string,
+        public email: string,
+        public firstName: string,
+        public lastName: string,
+        public age: number,
+        public phone: string,
+        public garden: {
+            plants: string[]
+        }
+    ) {
     }
 }

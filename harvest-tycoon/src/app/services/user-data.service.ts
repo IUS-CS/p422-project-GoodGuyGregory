@@ -14,15 +14,19 @@ export class UserDataService {
 
   private communityUrl = '/v1/community';
 
-  private userUrl = '/v1/user'
+  private userUrl = '/v1/users';
 
   public getUsers(): Observable<User[]> {
     // returns an array of Users
     return this.http.get<User[]>(this.communityUrl);
   }
 
-  public getUser(name: string): Observable<User> {
+  public getUser(username: string): Observable<User> {
     // return a single user
-    return this.http.get<User>(`${this.userUrl}/${name}`);
+    return this.http.get<User>(`${this.userUrl}/${username}`);
+  }
+
+  public createUser(userToCreate: User): Observable<any> {
+    return this.http.post(`${this.userUrl}/${userToCreate.username}`, userToCreate);
   }
 }

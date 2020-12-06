@@ -1,9 +1,16 @@
 <div class="member-container">
     <mat-card>
         <mat-card-header>
-            {{user.username}}
+            <h3>{{user.username}}</h3>
         </mat-card-header>
         <mat-card-content>
+            <img src="assets/img/anon-user.png" alt="">
+            <hr>
+            <p>{{user.firstName}} {{user.lastName}}</p>
+            <hr>
+            <p>Plants: {{user.garden.plants.length}}</p>
+            <mat-icon color="accent">email</mat-icon>
+            <mat-icon color="accent">chat</mat-icon>
         </mat-card-content>
     </mat-card>
 </div>

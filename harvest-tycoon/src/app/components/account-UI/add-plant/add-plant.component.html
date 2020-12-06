@@ -10,12 +10,13 @@
                     <!--  create a Select Menu -->
                     <input matInput require id="type" formControlName="type" />
                 </mat-form-field>
+                &nbsp;
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>Plant Name</mat-label>
+                    <input matInput type="text" require id="name" formControlName="name" />
+                </mat-form-field>
                 <div class="seperate">
-                    <mat-form-field appearance="outline" color="accent">
-                        <mat-label>Plant Name</mat-label>
-                        <input matInput type="text" require id="name" formControlName="name" />
-                    </mat-form-field>
-                    <h3>Basic Information:</h3>
+                    <h2>Basic Information:</h2>
                     <mat-form-field appearance="fill">
                         <mat-label>Life Stage of Plant</mat-label>
                         <mat-select>
@@ -26,12 +27,14 @@
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Life Stage of Plant</mat-label>
+                        <mat-label>Light Preferences of Plant</mat-label>
                         <mat-select>
-                            <mat-option value="Seed" formControlName="lifestage">Seed</mat-option>
-                            <mat-option value="Seedling" formControlName="lifestage">Seedling</mat-option>
-                            <mat-option value="Young Plant" formControlName="lifestage">Young Plant</mat-option>
-                            <mat-option value="Mature Plant" formControlName="lifestage">Mature Plant</mat-option>
+                            <mat-option value="Some Sunlight" formControlName="lightPreferences">Some Sunlight
+                            </mat-option>
+                            <mat-option value="Indirect Sunlight" formControlName="lightPreferences">Indirect Sunlight
+                            </mat-option>
+                            <mat-option value="Shade" formControlName="lightPreferences">Shade</mat-option>
+                            <mat-option value="Full Sun" formControlName="lightPreferences">Full Sun</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatIconModule } from '@angular/material/icon';
 
 const MaterialComponents = [
   MatProgressSpinnerModule,
@@ -27,7 +27,8 @@ const MaterialComponents = [
   MatInputModule,
   MatStepperModule,
   MatSidenavModule,
-  MatSelectModule
+  MatSelectModule,
+  MatIconModule
 ]
 
 @NgModule({

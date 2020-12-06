@@ -1,7 +1,7 @@
 .community-container {
     h2 {
         text-align: center;
-        margin: 20px;
+        margin: 30px 20px 30px 20px;
         font-size: 2em;
     }
     .members-container {
@@ -11,6 +11,7 @@
         flex-wrap: wrap;
 
         .members{
+            text-align: center;
             margin: 25px;
         }
     }
