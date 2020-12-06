@@ -1,7 +1,9 @@
 export class Plant {
-    type: string;
-    name: string;
-    lifestage: string;
-    lightPreferences: string;
-    wateringPreferences: string;
+    constructor(
+        public type: string,
+        public name: string,
+        public lifestage: string,
+        public lightPreferences: string,
+        public wateringPreferences: string
+    ) { }
 }

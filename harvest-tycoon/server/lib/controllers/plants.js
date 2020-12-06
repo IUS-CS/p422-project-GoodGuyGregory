@@ -14,7 +14,7 @@ module.exports = {
             res.json(assignment);
         });
     },
-    bySection: function (req, res) {
+    byUser: function (req, res) {
         // return all possible assignments from the model
         const section = req.params.class;
         Assignment.find().bySection(section).exec((err, assignments) => {

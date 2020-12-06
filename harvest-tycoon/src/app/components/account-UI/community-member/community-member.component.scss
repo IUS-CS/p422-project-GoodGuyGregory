@@ -2,12 +2,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    h3 {
-        text-align: center;
+    mat-card {
+
+        mat-card-header {
+
+            h3 {
+                margin: 10px;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+
     }
 
+
     img {
+        margin: 15px;
         border-radius: 15px;
+    }
+
+    mat-icon {
+        margin: 15px;
     }
 
 }

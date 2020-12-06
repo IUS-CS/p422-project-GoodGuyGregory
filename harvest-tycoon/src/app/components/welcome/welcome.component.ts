@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 
 @Component({
@@ -9,7 +10,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userDataService: UserDataService
+  ) { }
   showingAbout: boolean = true;
   creatingUser: boolean = false;
 
@@ -42,6 +46,10 @@ export class WelcomeComponent implements OnInit {
     this.creatingUser = !this.creatingUser;
     this.showingAbout = !this.showingAbout;
     // console.log(this.creatingUser);
+  }
+
+  onSubmit(): void {
+
   }
 
 }

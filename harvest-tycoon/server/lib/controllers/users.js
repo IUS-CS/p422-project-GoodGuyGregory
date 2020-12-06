@@ -17,9 +17,9 @@ module.exports = {
     })
   },
   byUser: (req, res) => {
-    const section = req.params.class;
+    const user = req.params.username;
 
-    User.findOne().bySection(section).exec((err, user) => {
+    User.findOne().byName(user).exec((err, user) => {
       if (err) {
         res.status(500);
         res.json(err);
@@ -33,5 +33,16 @@ module.exports = {
       console.log('sending user: ' + user)
       res.json(user);
     })
+  },
+  createUser: (req, res) => {
+    const newUser = new User(req.body);
+    newUser.save()
+      .then(() => {
+        res.sendStatus(204);
+      })
+      .catch(err => {
+        res.status(400);
+        res.json(err);
+      });
   }
 }
