@@ -10,7 +10,7 @@ routes.route('/community')
 
 routes.route('/users/:username')
   .get(users.byUser)
-  .post(users.createUser)
+  .put(users.createUser)
 
 
 routes.route('/garden/:user/:plant')
