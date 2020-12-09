@@ -9,8 +9,9 @@
             <p>{{user.firstName}} {{user.lastName}}</p>
             <hr>
             <p>Plants: {{user.garden.plants.length}}</p>
-            <mat-icon color="accent">email</mat-icon>
-            <mat-icon color="accent">chat</mat-icon>
+            <mat-icon color="accent"><a href="mailto: {{user.email}}" alt="email">email</a></mat-icon>
+            <mat-icon color="accent"><a routerLink="messages">chat</a> </mat-icon>
+            <mat-icon color="accent"><a href="tel:{{user.phone}}">call</a></mat-icon>
         </mat-card-content>
     </mat-card>
 </div>

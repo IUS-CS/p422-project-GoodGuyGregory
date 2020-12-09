@@ -16,6 +16,8 @@ import { UserHeaderComponent } from './components/account-UI/headers/user-header
 import { CommunityMemberComponent } from './components/account-UI/community-member/community-member.component';
 import { AddPlantComponent } from './components/account-UI/add-plant/add-plant.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MessagesComponent } from './components/account-UI/messaging/messages/messages.component';
+import { CreateMessageComponent } from './components/account-UI/messaging/create-message/create-message.component';
 
 
 
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     UserPlantsComponent,
     UserHeaderComponent,
     CommunityMemberComponent,
-    AddPlantComponent
+    AddPlantComponent,
+    MessagesComponent,
+    CreateMessageComponent
   ],
   imports: [
     BrowserModule,

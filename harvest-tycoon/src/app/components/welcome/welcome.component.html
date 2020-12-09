@@ -31,7 +31,7 @@
                         <mat-card-title>Create Your Profile</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+                        <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
                             <mat-form-field appearance="outline" color="accent">
                                 <mat-label>Username</mat-label>
                                 <input matInput require id="username" formControlName="username" />
@@ -71,14 +71,13 @@
                                     <input matInput require id="phone" formControlName="phone" />
                                 </mat-form-field>
                             </div>
+                            <mat-card-actions>
+                                <button class="create-account-btn" mat-raised-button color="accent" type="submit"
+                                    [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
+                                    Account</button>
+                            </mat-card-actions>
                         </form>
-
                     </mat-card-content>
-                    <mat-card-actions>
-                        <button class="create-account-btn" mat-raised-button color="accent" type="submit"
-                            [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
-                            Account</button>
-                    </mat-card-actions>
                 </mat-card>
             </div>
         </mat-tab>
