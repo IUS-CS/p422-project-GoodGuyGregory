@@ -27,6 +27,7 @@ export class UserDataService {
   }
 
   public createUser(userToCreate: User): Observable<any> {
-    return this.http.post(`${this.userUrl}/${userToCreate.username}`, userToCreate);
+    
+    return this.http.post<User>(`${this.userUrl}/${userToCreate.username}`, userToCreate);
   }
 }

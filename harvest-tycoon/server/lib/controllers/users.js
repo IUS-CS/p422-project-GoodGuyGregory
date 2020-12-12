@@ -36,6 +36,8 @@ module.exports = {
   },
   createUser: (req, res) => {
     const newUser = new User(req.body);
+    console.log("Attempting to Save:");
+    console.log(JSON.stringify(newUser));
     newUser.save()
       .then(() => {
         res.sendStatus(204);
