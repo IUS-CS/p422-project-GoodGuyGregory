@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -10,9 +12,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   loginForm: FormGroup;
+
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -22,6 +27,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log("logging in.....");
+    let userToCheck = {
+      username: this.loginForm.controls.username.value,
+      password: this.loginForm.controls.password.value
+    }
+
+    console.log(JSON.stringify(userToCheck));
+    //  Check if the Username and Password match for the entered values and allow access:
+    this.router.navigate(['/dashboard', userToCheck.username]);
   }
 }

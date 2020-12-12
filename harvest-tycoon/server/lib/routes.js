@@ -13,11 +13,11 @@ routes.route('/users/:username')
   .post(users.createUser)
 
 
-routes.route('/garden/:user/:plant')
+routes.route('/garden/:username/:plant')
   .post(plants.byUser)
 
-// routes.route('/garden/:plant')
-//   .get(plant.byUser)
+routes.route('/garden/:username')
+  .get(plant.byUser)
 
 // routes.route('/plants/:user/:plant')
 //   .post(plant.submit)
