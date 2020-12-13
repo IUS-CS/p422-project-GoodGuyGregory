@@ -1,40 +1,51 @@
+const Plant = require("../models/plant");
 const Plants = require("../models/plant");
-
+const User = require('../models/user');
 
 module.exports = {
-    details: function (req, res) {
-        const section = req.params.class;
-        const name = req.params.assignment;
-        Assignment.findOne().bySectionAndName(section, name).exec((err, assignment) => {
-            if (err) {
-                res.status(500);
-                res.json(err);
-                return;
-            }
-            res.json(assignment);
-        });
-    },
     byUser: function (req, res) {
         // return all possible assignments from the model
-        const section = req.params.class;
-        Assignment.find().bySection(section).exec((err, assignments) => {
+        const user = req.params.username;
+        User.findOne().byName(user).exec((err, user) => {
             if (err) {
                 res.status(500);
                 res.json(err);
                 return;
             }
-            res.json(assignments);
-        });
+            if (!user) {
+                res.status(404);
+                res.json({ 'err': 'user not found' });
+                return;
+            }
+            console.log(`sending ${user.username}'s garden: `)
+            res.json(user.garden.plants);
+        })
     },
-    submit: function (req, res) {
-        const submission = new Submission(req.body);
-        submission.save()
-            .then(() => {
-                res.sendStatus(204);
-            })
-            .catch(err => {
-                res.status(400);
+    createPlant: function (req, res) {
+        const user = req.params.username;
+        const plant = new Plant(req.body);
+        User.findOne().byName(user).exec((err, user) => {
+            if (err) {
+                res.status(500);
                 res.json(err);
-            });
+                return;
+            }
+            if (!user) {
+                res.status(404);
+                res.json({ 'err': 'user not found' });
+                return;
+            }
+            console.log(`adding ${plant.name} to ${user.username}'s garden: `)
+            user.garden.plants.push(plant);
+            user.save()
+                .then(() => {
+                    res.sendStatus(204);
+                })
+                .catch(err => {
+                    res.status(400);
+                    res.json(err);
+                });
+            res.json(user.garden.plants);
+        })
     }
 }

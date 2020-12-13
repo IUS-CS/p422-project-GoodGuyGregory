@@ -12,14 +12,12 @@ routes.route('/users/:username')
   .get(users.byUser)
   .post(users.createUser)
 
-
-routes.route('/garden/:username/:plant')
-  .post(plants.byUser)
+routes.route('/users/:username/:password')
+  .get(users.loginUser)
 
 routes.route('/garden/:username')
-  .get(plant.byUser)
+  .get(plants.byUser)
+  .post(plants.createPlant)
 
-// routes.route('/plants/:user/:plant')
-//   .post(plant.submit)
 
 module.exports = routes;

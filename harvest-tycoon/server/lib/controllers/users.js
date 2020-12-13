@@ -46,5 +46,21 @@ module.exports = {
         res.status(400);
         res.json(err);
       });
+  },
+  loginUser: (req, res) => {
+    let body = req.params.user;
+    let password = body['password'];
+    // console.log(password);
+    // res.send(password);
+
+    if (!body['password']) {
+      res.status(411);
+      res.json({ error: "Need password for POST" });
+      return;
+    }
+    // console.log(bloomFilter);
+    // record the value being passed in the body
+    res.json({ seen: `${bloomFilter.check(password)}` });
+    return;
   }
 }
