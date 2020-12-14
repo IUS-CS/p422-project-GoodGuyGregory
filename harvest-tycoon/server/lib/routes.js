@@ -10,16 +10,14 @@ routes.route('/community')
 
 routes.route('/users/:username')
   .get(users.byUser)
-  .put(users.createUser)
+  .post(users.createUser)
 
+routes.route('/users/:username/:password')
+  .get(users.loginUser)
 
-routes.route('/garden/:user/:plant')
-  .post(plants.byUser)
+routes.route('/garden/:username')
+  .get(plants.byUser)
+  .post(plants.createPlant)
 
-// routes.route('/garden/:plant')
-//   .get(plant.byUser)
-
-// routes.route('/plants/:user/:plant')
-//   .post(plant.submit)
 
 module.exports = routes;

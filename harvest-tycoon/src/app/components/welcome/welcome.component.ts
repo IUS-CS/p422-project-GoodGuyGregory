@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { User } from '../../models/user';
 
@@ -11,12 +12,17 @@ import { User } from '../../models/user';
 export class WelcomeComponent implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder,
     private userDataService: UserDataService
   ) { }
+
   showingAbout: boolean = true;
   creatingUser: boolean = false;
+
   newUser: User;
+  enteringUserDetails: boolean = true;
+  successfullyCreated: boolean = false;
+  badRequestError: string = "";
+  isError: boolean = false;
 
 
   createUserForm = new FormGroup({
@@ -31,6 +37,7 @@ export class WelcomeComponent implements OnInit {
   })
 
   ngOnInit(): void {
+
   }
 
   hideAbout(): void {
@@ -46,9 +53,35 @@ export class WelcomeComponent implements OnInit {
     // console.log(this.creatingUser);
   }
 
+
   createUser(): void {
-    // set form validation values to the new user to PUT
-    console.log(this.createUserForm.controls.age.value);
+    // create User object with attibutes
+    this.newUser = {
+      username: this.createUserForm.controls.username.value,
+      password: this.createUserForm.controls.password.value,
+      email: this.createUserForm.controls.email.value,
+      firstName: this.createUserForm.controls.firstName.value,
+      lastName: this.createUserForm.controls.lastName.value,
+      age: this.createUserForm.controls.age.value,
+      phone: this.createUserForm.controls.phone.value,
+      garden: {
+        plants: [],
+      }
+    }
+
+    console.log(JSON.stringify(this.newUser));
+
+    this.userDataService.createUser(this.newUser).subscribe(
+      next => {
+        this.enteringUserDetails = !this.enteringUserDetails;
+        this.successfullyCreated = !this.successfullyCreated;
+      },
+      err => {
+        // console.log(err);
+        this.badRequestError = "please enter a unique username and email..."
+        this.isError = true;
+      }
+    );
   }
 
 }

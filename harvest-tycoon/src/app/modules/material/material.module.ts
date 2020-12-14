@@ -28,7 +28,7 @@ const MaterialComponents = [
   MatStepperModule,
   MatSidenavModule,
   MatSelectModule,
-  MatIconModule
+  MatIconModule,
 ]
 
 @NgModule({

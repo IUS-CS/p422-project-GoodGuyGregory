@@ -19,22 +19,17 @@
                     <h2>Basic Information:</h2>
                     <mat-form-field appearance="fill">
                         <mat-label>Life Stage of Plant</mat-label>
-                        <mat-select>
-                            <mat-option value="Seed" formControlName="lifestage">Seed</mat-option>
-                            <mat-option value="Seedling" formControlName="lifestage">Seedling</mat-option>
-                            <mat-option value="Young Plant" formControlName="lifestage">Young Plant</mat-option>
-                            <mat-option value="Mature Plant" formControlName="lifestage">Mature Plant</mat-option>
+                        <mat-select formControlName="lifeStage">
+                            <mat-option *ngFor="let lifeStage of formOptions.lifeStage" [value]="lifeStage">
+                                {{lifeStage}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Light Preferences of Plant</mat-label>
-                        <mat-select>
-                            <mat-option value="Some Sunlight" formControlName="lightPreferences">Some Sunlight
-                            </mat-option>
-                            <mat-option value="Indirect Sunlight" formControlName="lightPreferences">Indirect Sunlight
-                            </mat-option>
-                            <mat-option value="Shade" formControlName="lightPreferences">Shade</mat-option>
-                            <mat-option value="Full Sun" formControlName="lightPreferences">Full Sun</mat-option>
+                        <mat-select formControlName="lightPreferences">
+                            <mat-option *ngFor="let lightPreferences of formOptions.lightPreferences"
+                                [value]="lightPreferences">
+                                {{lightPreferences}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -43,10 +38,12 @@
                     <input matInput require id="wateringPreferences" formControlName="wateringPreferences"
                         type="text" />
                 </mat-form-field>
+                <mat-card-actions>
+                    <button class="create-plant-btn" mat-raised-button color="accent" type="submit"
+                        [disabled]="!createUserPlantForm.valid || !createUserPlantForm.dirty">Add to
+                        Garden</button>
+                </mat-card-actions>
             </form>
         </mat-card-content>
-        <mat-card-actions>
-            <button class="create-plant-btn" mat-raised-button color="accent" type="submit">Add to Garden</button>
-        </mat-card-actions>
     </mat-card>
 </div>

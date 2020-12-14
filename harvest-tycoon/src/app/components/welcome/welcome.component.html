@@ -28,55 +28,71 @@
                 <mat-card>
                     <button class="goBack" mat-raised-button color="primary" (click)="showAbout()">Go Back</button>
                     <mat-card-header>
-                        <mat-card-title>Create Your Profile</mat-card-title>
+                        <div *ngIf="enteringUserDetails">
+                            <mat-card-title>Create Your Profile</mat-card-title>
+                        </div>
+                        <div *ngIf="successfullyCreated">
+                            <mat-card-title>You've Successfully Created an Account!</mat-card-title>
+                        </div>
                     </mat-card-header>
                     <mat-card-content>
-                        <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
-                            <mat-form-field appearance="outline" color="accent">
-                                <mat-label>Username</mat-label>
-                                <input matInput require id="username" formControlName="username" />
-                            </mat-form-field>
-                            <div class="seperate">
-                                <mat-form-field appearance="outline" color="accent">
-                                    <mat-label>Password</mat-label>
-                                    <input matInput type="password" require id="password" formControlName="password" />
-                                </mat-form-field>
-                                <mat-form-field appearance="outline" color="accent">
-                                    <mat-label>Confirm Password</mat-label>
-                                    <input matInput type="password" require id="confirmPassword"
-                                        formControlName="confirmPassword" />
-                                </mat-form-field>
+                        <div *ngIf="enteringUserDetails">
+                            <div class="error-box" *ngIf="isError">
+                                <p>{{ this.badRequestError }}</p>
                             </div>
-                            <mat-form-field appearance="outline" color="accent">
-                                <mat-label>Email</mat-label>
-                                <input matInput type="email" id="email" require formControlName="email" />
-                            </mat-form-field>
-                            <div class="seperate">
+                            <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
                                 <mat-form-field appearance="outline" color="accent">
-                                    <mat-label>Firstname</mat-label>
-                                    <input matInput type="text" id="firstName" require formControlName="firstName" />
+                                    <mat-label>Username</mat-label>
+                                    <input matInput require id="username" formControlName="username" />
                                 </mat-form-field>
+                                <div class="seperate">
+                                    <mat-form-field appearance="outline" color="accent">
+                                        <mat-label>Password</mat-label>
+                                        <input matInput type="password" require id="password"
+                                            formControlName="password" />
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline" color="accent">
+                                        <mat-label>Confirm Password</mat-label>
+                                        <input matInput type="password" require id="confirmPassword"
+                                            formControlName="confirmPassword" />
+                                    </mat-form-field>
+                                </div>
                                 <mat-form-field appearance="outline" color="accent">
-                                    <mat-label>Lastname</mat-label>
-                                    <input matInput require id="lastName" formControlName="lastName" type="text" />
+                                    <mat-label>Email</mat-label>
+                                    <input matInput type="email" id="email" require formControlName="email" />
                                 </mat-form-field>
-                            </div>
-                            <div class="seperate">
-                                <mat-form-field appearance="outline" color="accent">
-                                    <mat-label>Age</mat-label>
-                                    <input matInput type="number" id="age" require formControlName="age" />
-                                </mat-form-field>
-                                <mat-form-field appearance="outline" color="accent">
-                                    <mat-label>Phone</mat-label>
-                                    <input matInput require id="phone" formControlName="phone" />
-                                </mat-form-field>
-                            </div>
-                            <mat-card-actions>
-                                <button class="create-account-btn" mat-raised-button color="accent" type="submit"
-                                    [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
-                                    Account</button>
-                            </mat-card-actions>
-                        </form>
+                                <div class="seperate">
+                                    <mat-form-field appearance="outline" color="accent">
+                                        <mat-label>Firstname</mat-label>
+                                        <input matInput type="text" id="firstName" require
+                                            formControlName="firstName" />
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline" color="accent">
+                                        <mat-label>Lastname</mat-label>
+                                        <input matInput require id="lastName" formControlName="lastName" type="text" />
+                                    </mat-form-field>
+                                </div>
+                                <div class="seperate">
+                                    <mat-form-field appearance="outline" color="accent">
+                                        <mat-label>Age</mat-label>
+                                        <input matInput type="number" id="age" require formControlName="age" />
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline" color="accent">
+                                        <mat-label>Phone</mat-label>
+                                        <input matInput require id="phone" formControlName="phone" />
+                                    </mat-form-field>
+                                </div>
+                                <mat-card-actions>
+                                    <button class="create-account-btn" mat-raised-button color="accent" type="submit"
+                                        [disabled]="!createUserForm.valid || !createUserForm.dirty">Create
+                                        Account</button>
+                                </mat-card-actions>
+                            </form>
+                        </div>
+                        <div *ngIf="successfullyCreated">
+                            <h3>Welcome {{ this.createUserForm.controls.username.value | titlecase }}</h3>
+                            <p> Please Login </p>
+                        </div>
                     </mat-card-content>
                 </mat-card>
             </div>

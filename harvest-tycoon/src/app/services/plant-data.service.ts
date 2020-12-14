@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Plant } from '../models/plant';
 
 // Models:
 
@@ -14,8 +15,16 @@ export class PlantDataService {
     private http: HttpClient
   ) { }
 
-  private plantUrl = '/v1/plants';
+  private plantUrl = '/v1/garden';
 
-  public getUserPlants(): Observable<Plant[]>
+  // Returns an array of plants for a user profile
+  public getUserPlants(username: string): Observable<Plant[]> {
+    return this.http.get<Plant[]>(`${this.plantUrl}/${username}`);
+  }
+
+  //  Posts new plants to the user's garden
+  public createNewPlant(username: string, plantToAdd: Plant): Observable<any> {
+    return this.http.post<Plant>(`${this.plantUrl}/${username}`, plantToAdd);
+  }
 
 }
