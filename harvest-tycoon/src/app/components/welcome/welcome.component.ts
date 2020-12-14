@@ -12,7 +12,6 @@ import { User } from '../../models/user';
 export class WelcomeComponent implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder,
     private userDataService: UserDataService
   ) { }
 
