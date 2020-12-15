@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Plant } from '../../../models/plant';
+
 @Component({
   selector: 'app-plant',
   templateUrl: './plant.component.html',

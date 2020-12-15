@@ -10,7 +10,7 @@
         <mat-sidenav-content>
             <div class="garden-content">
                 <mat-card>
-                    <button mat-raised-button color="primary" (click)="drawer.toggle(); print()">See Plants</button>
+                    <button mat-raised-button color="primary" (click)="drawer.toggle()">See Plants</button>
                     <div *ngIf="plantSelected" class="plant-container">
                         <app-plant [plant]="userPlant"></app-plant>
                     </div>

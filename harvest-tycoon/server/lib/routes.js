@@ -22,5 +22,8 @@ routes.route('/garden/:username')
   .get(plants.byUser)
   .post(plants.createPlant)
 
+routes.route('/messages/:username')
+  .get(plants.byUser)
+  .post(plants.createPlant)
 
 module.exports = routes;
