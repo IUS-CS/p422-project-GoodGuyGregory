@@ -8,6 +8,9 @@ let routes = express.Router();
 routes.route('/community')
   .get(users.root)
 
+routes.route('/community/:username')
+  .get(users.returnOtherUsers)
+
 routes.route('/users/:username')
   .get(users.byUser)
   .post(users.createUser)

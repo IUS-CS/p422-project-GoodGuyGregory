@@ -16,6 +16,24 @@ module.exports = {
       res.json(currentUsers);
     })
   },
+  returnOtherUsers: (req, res) => {
+    const currentUser = req.params.username;
+    User.find().exec((err, users) => {
+      if (err) {
+        res.status(500);
+        res.json(err);
+        return;
+      }
+      let currentUsers = [];
+      for (let user of users) {
+        if (user.username != currentUser) {
+          currentUsers.push(user);
+        }
+      }
+      //  return other users details 
+      res.json(currentUsers);
+    })
+  },
   byUser: (req, res) => {
     const user = req.params.username;
 
