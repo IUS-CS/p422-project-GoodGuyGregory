@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { PlantDataService } from 'src/app/services/plant-data.service';
+import { Plant } from '../../../models/plant';
 
 @Component({
   selector: 'app-user-plants',
@@ -7,14 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPlantsComponent implements OnInit {
 
-  housePlants = false;
-  harvestablePlants = false;
+  currentUser: string;
+  currentUserPlants: Observable<Plant[]>;
 
+  userPlant: Plant;
   plantSelected = false;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private plantDataService: PlantDataService
+  ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.route.snapshot.params.username;
+
+    this.currentUserPlants = this.plantDataService.getUserPlants(this.currentUser);
   }
+
+  selectPlant(plantSelection: Plant): void {
+    this.userPlant = plantSelection;
+    this.plantSelected = true;
+  }
+
 
 }

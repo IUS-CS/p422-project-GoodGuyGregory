@@ -1,0 +1,9 @@
+.plant-container {
+    mat-card {
+        border-radius: 15px;
+        background: rgb(145,142,149);
+        background: linear-gradient(119deg, rgba(145,142,149,1) 69%, rgba(68,219,68,1) 92%, rgba(130,218,10,1) 95%);
+        border: none;
+        padding: 60px;
+    }
+}

@@ -2,29 +2,19 @@
     <mat-sidenav-container autosize>
         <mat-sidenav #drawer>
             <h2>Currently Growing</h2>
-            <button (click)="housePlants = !housePlants" mat-raised-button>
-                House Plants
-            </button>
-            <div class="inner" *ngIf="housePlants">
-                <button mat-raised-button>Bamboo</button>
-                <button mat-raised-button>Succulents</button>
-                <button mat-raised-button>Trees</button>
-            </div>
-            <button (click)="harvestablePlants = !harvestablePlants" mat-raised-button>
-                Harvestables
-            </button>
-            <div class="inner" *ngIf="harvestablePlants">
-                <button mat-raised-button>Fruits</button>
-                <button mat-raised-button>Vegtables</button>
-                <button mat-raised-button>Herbs</button>
+            <div class="plants" *ngFor="let plant of ( currentUserPlants | async )">
+                <button mat-raised-button (click)="selectPlant(plant)">{{plant.name}}</button>
             </div>
 
         </mat-sidenav>
         <mat-sidenav-content>
             <div class="garden-content">
                 <mat-card>
-                    <button mat-raised-button color="primary" (click)="drawer.toggle()">See Plants</button>
-                    <app-plant *ngIf="plantSelected"></app-plant>
+                    <button mat-raised-button color="primary" (click)="drawer.toggle(); print()">See Plants</button>
+                    <div *ngIf="plantSelected" class="plant-container">
+                        <app-plant [plant]="userPlant"></app-plant>
+                    </div>
+
                 </mat-card>
             </div>
         </mat-sidenav-content>
