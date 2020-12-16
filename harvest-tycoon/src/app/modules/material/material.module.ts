@@ -14,6 +14,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 const MaterialComponents = [
   MatProgressSpinnerModule,
@@ -29,6 +31,8 @@ const MaterialComponents = [
   MatSidenavModule,
   MatSelectModule,
   MatIconModule,
+  MatDividerModule,
+  MatListModule
 ]
 
 @NgModule({

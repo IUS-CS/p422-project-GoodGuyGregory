@@ -12,7 +12,7 @@ export class MessageDataService {
     private http: HttpClient
   ) { }
 
-  private messageUrl = '/v1/message';
+  private messageUrl = '/v1/messages';
 
   // Returns an array of messages for a user profile
   public getUserMessages(username: string): Observable<Message[]> {
