@@ -9,6 +9,9 @@ export class User {
         public phone: string,
         public garden: {
             plants: string[]
+        },
+        public inbox: {
+            messages: string[]
         }
     ) {
     }

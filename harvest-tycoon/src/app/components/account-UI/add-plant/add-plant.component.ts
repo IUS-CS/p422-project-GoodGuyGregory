@@ -12,7 +12,7 @@ import { PlantDataService } from 'src/app/services/plant-data.service';
 })
 export class AddPlantComponent implements OnInit {
 
-  currentUser: Observable<string>
+  currentUser: string
   createUserPlantForm: FormGroup
   newPlant: Plant
 
@@ -47,11 +47,19 @@ export class AddPlantComponent implements OnInit {
       wateringPreferences: this.createUserPlantForm.controls.wateringPreferences.value,
     }
 
-    console.log(this.newPlant);
+    // console.log(this.newPlant);
 
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
 
-    // this.plantDataService.
+    this.plantDataService.createNewPlant(this.currentUser, this.newPlant).subscribe(
+      next => {
+        console.log(`New ${this.newPlant.name} added to ${this.currentUser}'s Garden`);
+      },
+      err => {
+        console.log(err);
+      }
+
+    )
   }
 
 }

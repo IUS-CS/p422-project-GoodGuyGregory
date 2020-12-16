@@ -1,8 +1,9 @@
-<mat-card>
-    <h3>Plant Type:</h3>
-    <p>Water Schedule: </p>
-    <p>Fertilization Date: </p>
-    <p>Perfered Conditions for Growing </p>
-    <p>Perfered Conditions for Growing </p>
-
-</mat-card>
+<div class="plant-container">
+    <mat-card>
+        <h2>{{plant.name}}</h2>
+        <h3>Plant Type: {{plant.type}}</h3>
+        <p>Life Stage: {{plant.lifestage}} </p>
+        <p>Light Preferences: {{plant.lightPreferences}} </p>
+        <p>Water Schedule: {{ plant.wateringPreferences | titlecase }}</p>
+    </mat-card>
+</div>

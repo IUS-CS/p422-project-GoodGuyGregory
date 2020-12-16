@@ -1,0 +1,10 @@
+<div class="message-container">
+    <mat-card>
+        <h3>From: {{ message.from | titlecase }} </h3>
+        <div class="message-content">
+            <p>{{ message.message }}</p>
+        </div>
+
+        <button mat-raised-button>Reply</button>
+    </mat-card>
+</div>

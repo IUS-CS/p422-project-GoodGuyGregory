@@ -1,5 +1,28 @@
 const mongoose = require('mongoose');
 
+const MessageSchema = mongoose.Schema({
+  from: {
+    type: String,
+    required: true,
+  },
+  to: {
+    type: String,
+    required: true
+  },
+  subject: {
+    type: String,
+    required: true
+  },
+  message: {
+    type: String,
+    required: true
+  }
+});
+
+const InboxSchema = mongoose.Schema({
+  messages: [MessageSchema],
+});
+
 const PlantSchema = mongoose.Schema({
   type: {
     type: String,
@@ -25,7 +48,7 @@ const PlantSchema = mongoose.Schema({
 
 var gardenSchema = mongoose.Schema({
   plants: [PlantSchema],
-})
+});
 
 const UserSchema = mongoose.Schema({
   username: {
@@ -52,6 +75,12 @@ const UserSchema = mongoose.Schema({
     default: {
       plants: [],
     }
+  },
+  inbox: {
+    type: InboxSchema,
+    default: {
+      messages: [],
+    }
   }
 
 });
@@ -59,7 +88,6 @@ const UserSchema = mongoose.Schema({
 UserSchema.query.byName = function (name) {
   return this.where({ username: name });
 }
-
 
 const User = mongoose.model('User', UserSchema);
 

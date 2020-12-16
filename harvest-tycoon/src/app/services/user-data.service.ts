@@ -21,13 +21,13 @@ export class UserDataService {
     return this.http.get<User[]>(this.communityUrl);
   }
 
-  public getUser(username: string): Observable<User> {
+  public getOtherUsers(username: string): Observable<User[]> {
     // return a single user
-    return this.http.get<User>(`${this.userUrl}/${username}`);
+    return this.http.get<User[]>(`${this.communityUrl}/${username}`);
   }
 
   public createUser(userToCreate: User): Observable<any> {
-    
+
     return this.http.post<User>(`${this.userUrl}/${userToCreate.username}`, userToCreate);
   }
 }

@@ -18,6 +18,7 @@ import { AddPlantComponent } from './components/account-UI/add-plant/add-plant.c
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './components/account-UI/messaging/messages/messages.component';
 import { CreateMessageComponent } from './components/account-UI/messaging/create-message/create-message.component';
+import { MessageComponent } from './components/account-UI/messaging/message/message.component';
 
 
 
@@ -34,7 +35,8 @@ import { CreateMessageComponent } from './components/account-UI/messaging/create
     CommunityMemberComponent,
     AddPlantComponent,
     MessagesComponent,
-    CreateMessageComponent
+    CreateMessageComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

@@ -66,6 +66,9 @@ export class WelcomeComponent implements OnInit {
       phone: this.createUserForm.controls.phone.value,
       garden: {
         plants: [],
+      },
+      inbox: {
+        messages: [],
       }
     }
 

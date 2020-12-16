@@ -1,4 +1,5 @@
 .garden-container {
+    padding: 20px;
     height: 100%;
 
     mat-sidenav-container {
@@ -28,9 +29,13 @@
             .garden-content {
                 mat-card {
                     height: 500px;
+                    padding: 20px;
                     margin: 30px;
+
                     .plant-container {
-                        padding: 25%;
+                        border-radius: 10px;
+                        padding: 15px;
+                        margin: 45px;
                     }
                 }
             }

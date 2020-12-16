@@ -1,1 +1,21 @@
-<p>messages works!</p>
+<div class="messages-container">
+    <h2>Inbox</h2>
+    <mat-grid-list cols="12" rowHeight="fit" style="height: 600px">
+        <mat-grid-tile id="inbox" colspan="3">
+            <mat-list>
+                <div *ngFor="let message of ( userMessages | async)">
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <button mat-stroked-button (click)="showMessage(message)">{{ message.subject}}</button>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </div>
+            </mat-list>
+        </mat-grid-tile>
+        <mat-grid-tile id="message" colspan="9">
+            <div *ngIf="messageSelected">
+                <app-message [message]="userMessage"></app-message>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

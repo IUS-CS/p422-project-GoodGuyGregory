@@ -1,5 +1,4 @@
 const Plant = require("../models/plant");
-const Plants = require("../models/plant");
 const User = require('../models/user');
 
 module.exports = {
