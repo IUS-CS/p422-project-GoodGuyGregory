@@ -45,6 +45,7 @@ export class AddPlantComponent implements OnInit {
       lifestage: this.createUserPlantForm.controls.lifeStage.value,
       lightPreferences: this.createUserPlantForm.controls.lightPreferences.value,
       wateringPreferences: this.createUserPlantForm.controls.wateringPreferences.value,
+      _id: null
     }
 
     // console.log(this.newPlant);
@@ -54,6 +55,7 @@ export class AddPlantComponent implements OnInit {
     this.plantDataService.createNewPlant(this.currentUser, this.newPlant).subscribe(
       next => {
         console.log(`New ${this.newPlant.name} added to ${this.currentUser}'s Garden`);
+
       },
       err => {
         console.log(err);

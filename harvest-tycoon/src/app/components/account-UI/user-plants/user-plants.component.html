@@ -2,13 +2,15 @@
     <mat-sidenav-container autosize>
         <mat-sidenav #drawer>
             <h2>Currently Growing</h2>
+            <hr>
             <div class="plants" *ngFor="let plant of ( currentUserPlants | async )">
                 <button mat-raised-button (click)="selectPlant(plant)">{{plant.name}}
                 </button>
                 <button mat-fab color="primary">
-                    <mat-icon>delete</mat-icon>
+                    <mat-icon (click)="deletePlant(plant)">delete</mat-icon>
                 </button>
             </div>
+
 
         </mat-sidenav>
         <mat-sidenav-content>

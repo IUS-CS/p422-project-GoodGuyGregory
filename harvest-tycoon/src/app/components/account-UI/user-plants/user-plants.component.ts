@@ -26,6 +26,7 @@ export class UserPlantsComponent implements OnInit {
     this.currentUser = this.route.snapshot.params.username;
 
     this.currentUserPlants = this.plantDataService.getUserPlants(this.currentUser);
+
   }
 
   selectPlant(plantSelection: Plant): void {
@@ -33,5 +34,17 @@ export class UserPlantsComponent implements OnInit {
     this.plantSelected = true;
   }
 
+  deletePlant(plantToDelete: Plant): void {
 
+    let plantID = plantToDelete.name;
+    this.plantDataService.deletePlant(this.currentUser, plantID).subscribe(
+      next => {
+        console.log(`Deleted ${plantID} from ${this.currentUser}'s Garden`);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.ngOnInit();
+  }
 }

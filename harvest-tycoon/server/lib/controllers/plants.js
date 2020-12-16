@@ -46,5 +46,38 @@ module.exports = {
                 });
             res.json(user.garden.plants);
         })
+    },
+    deletePlant: function (req, res) {
+        const user = req.params.username;
+        let plantToRemove = req.params.plant;
+        User.findOne().byName(user).exec((err, user) => {
+            if (err) {
+                res.status(500);
+                res.json(err);
+                return;
+            }
+            if (!user) {
+                res.status(404);
+                res.json({ 'err': 'user not found' });
+                return;
+            }
+            console.log(`Removing ${plantToRemove} from ${user.username}'s garden: `);
+            user.garden.plants.forEach(plant => {
+                if (plant.name === plantToRemove) {
+                    plantToRemove = plant.id;
+                }
+            });
+            user.garden.plants.id(plantToRemove).remove();
+
+            user.save()
+                .then(() => {
+                    res.sendStatus(204);
+                })
+                .catch(err => {
+                    res.status(400);
+                    res.json(err);
+                });
+            res.json(user.garden.plants);
+        })
     }
 }
