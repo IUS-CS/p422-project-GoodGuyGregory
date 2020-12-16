@@ -23,6 +23,9 @@ routes.route('/garden/:username')
   .get(plants.byUser)
   .post(plants.createPlant)
 
+routes.route('/garden/:username/:plant')
+  .delete(plants.deletePlant)
+
 routes.route('/messages/:username')
   .get(messages.byUser)
   .post(messages.sendMessage)

@@ -26,4 +26,8 @@ export class PlantDataService {
     return this.http.post<Plant>(`${this.plantUrl}/${username}`, plantToAdd);
   }
 
+  public deletePlant(username: string, plantToDelete: string): Observable<any> {
+    return this.http.delete<Plant>(`${this.plantUrl}/${username}/${plantToDelete}`)
+  }
+
 }

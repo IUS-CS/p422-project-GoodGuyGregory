@@ -5,5 +5,7 @@ export class Plant {
         public lifestage: string,
         public lightPreferences: string,
         public wateringPreferences: string
-    ) { }
+    ) {
+
+    }
 }
