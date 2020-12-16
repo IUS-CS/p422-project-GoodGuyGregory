@@ -5,7 +5,6 @@ import { Plant } from '../models/plant';
 
 // Models:
 
-
 @Injectable({
   providedIn: 'root'
 })

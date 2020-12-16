@@ -1,5 +1,10 @@
 <div class="messages-container">
-    <mat-card>
-
-    </mat-card>
+    <h2>Inbox</h2>
+    <mat-grid-list cols="12" rowHeight="fit" style="height: 600px">
+        <mat-grid-tile id="inbox" colspan="3">
+        </mat-grid-tile>
+        <mat-grid-tile id="message" colspan="9">
+            <app-message></app-message>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

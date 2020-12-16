@@ -1,3 +1,19 @@
 .messages-container {
-    margin-top: 32px;
+    margin-top: 15px;
+    h2 {
+        padding: 15px;
+        font-size: 2.3em;
+    }
+    mat-grid-list {
+        #inbox {
+            border-radius: 5px;
+            background-color: #424242;
+        }
+
+        #message {
+            border-radius: 5px;
+            background: rgb(70, 10, 209);
+background: radial-gradient(circle, rgba(70,10,209,1) 0%, rgb(152, 152, 154) 89%);
+        }
+    }
 }

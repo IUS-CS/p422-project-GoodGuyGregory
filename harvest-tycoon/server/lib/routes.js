@@ -1,6 +1,7 @@
 const express = require('express');
 const users = require('./controllers/users');
 const plants = require('./controllers/plants');
+const messages = require('./controllers/messages');
 
 let routes = express.Router();
 
@@ -23,7 +24,7 @@ routes.route('/garden/:username')
   .post(plants.createPlant)
 
 routes.route('/messages/:username')
-  .get(plants.byUser)
-  .post(plants.createPlant)
+  .get(messages.byUser)
+  .post(messages.sendMessage)
 
 module.exports = routes;
