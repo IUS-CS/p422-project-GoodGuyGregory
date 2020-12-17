@@ -19,7 +19,7 @@ export class MessageDataService {
     return this.http.get<Message[]>(`${this.messageUrl}/${username}`);
   }
 
-  //  Posts new message to the user's inbox
+  //  Posts new message to the user's (RECEIVER's) inbox
   public createNewMessage(username: string, messageToAdd: Message): Observable<any> {
     return this.http.post<Message>(`${this.messageUrl}/${username}`, messageToAdd);
   }

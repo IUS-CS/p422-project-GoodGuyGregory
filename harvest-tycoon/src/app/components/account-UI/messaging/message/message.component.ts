@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { Message } from '../../../../models/message';
+import { User } from '../../../../models/user';
+import { CreateMessageComponent } from '../create-message/create-message.component';
 
 @Component({
   selector: 'app-message',
@@ -7,11 +11,25 @@ import { Message } from '../../../../models/message';
   styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
+  currentUser: string;
   @Input() message: Message;
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.route.snapshot.params.username;
   }
 
+
+  openDialog(): void {
+    this.dialog.open(CreateMessageComponent, {
+      data: {
+        user: `${this.message.from}`,
+        currentUser: `${this.currentUser}`
+      }
+    });
+  }
 }
