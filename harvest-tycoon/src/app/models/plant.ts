@@ -6,6 +6,5 @@ export class Plant {
         public lightPreferences: string,
         public wateringPreferences: string
     ) {
-
     }
 }

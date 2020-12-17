@@ -38,6 +38,7 @@ import { MessageComponent } from './components/account-UI/messaging/message/mess
     CreateMessageComponent,
     MessageComponent
   ],
+  entryComponents: [CreateMessageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
