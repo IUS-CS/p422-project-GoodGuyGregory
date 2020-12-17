@@ -1,0 +1,17 @@
+.create-message-container {
+    
+    h2 {
+        text-align: center;
+    }
+    mat-dialog-content {
+        width: 260px;
+        margin: 25px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        align-self: center;
+    }
+
+    mat-dialog-actions {
+        margin-bottom: 10px;
+    }
+}

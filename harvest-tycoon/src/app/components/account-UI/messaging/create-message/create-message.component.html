@@ -1,1 +1,24 @@
-<p>create-message works!</p>
+<div class="create-message-container">
+    <h2 mat-dialog-title>Compose Message </h2>
+    <mat-dialog-content>
+        <form [formGroup]="createMessageForm" class="message-form">
+            <mat-form-field>
+                <mat-label>Subject</mat-label>
+                <input matInput placeholder="What're You Growing?" formControlName="subject">
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Message</mat-label>
+                <textarea matInput placeholder="What's Your Harvest looking li" formControlName="subject"></textarea>
+            </mat-form-field>
+            <button mat-button>
+                <mat-icon mat-dialog-close>send</mat-icon>
+            </button>
+        </form>
+
+    </mat-dialog-content>
+
+
+
+</div>

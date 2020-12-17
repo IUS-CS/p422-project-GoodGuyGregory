@@ -62,6 +62,7 @@ module.exports = {
                 return;
             }
             console.log(`Removing ${plantToRemove} from ${user.username}'s garden: `);
+            //  replace name with ID for mongoose removal
             user.garden.plants.forEach(plant => {
                 if (plant.name === plantToRemove) {
                     plantToRemove = plant.id;
