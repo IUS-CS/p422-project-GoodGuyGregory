@@ -1,7 +1,7 @@
 <div class="create-message-container">
     <h2 mat-dialog-title>Compose Message </h2>
     <mat-dialog-content>
-        <form [formGroup]="createMessageForm" class="message-form">
+        <form [formGroup]="createMessageForm" class="message-form" (ngSubmit)="sendMessage(data)">
             <mat-form-field>
                 <mat-label>Subject</mat-label>
                 <input matInput placeholder="What're You Growing?" formControlName="subject">
@@ -10,10 +10,11 @@
 
             <mat-form-field>
                 <mat-label>Message</mat-label>
-                <textarea matInput placeholder="What's Your Harvest looking li" formControlName="subject"></textarea>
+                <textarea matInput formControlName="message"></textarea>
             </mat-form-field>
             <button mat-button>
-                <mat-icon mat-dialog-close>send</mat-icon>
+                <mat-icon mat-dialog-close color="accent" type="submit">send
+                </mat-icon>
             </button>
         </form>
 
